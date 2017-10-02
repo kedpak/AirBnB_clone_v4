@@ -16,6 +16,7 @@ $(document).ready(function () {
     $('.amenities h4').text(nameList);
   });
   $.get('http://0.0.0.0:5001/api/v1/status/', function (data) {
+    console.log(data.length);
     if (data['status'] === 'OK') {
       $('DIV#api_status').addClass('available');
     } else {
