@@ -14,8 +14,8 @@ $(document).ready(function () {
        console.log(amenList);
        $('.amenities h4').text($(this).attr('data-name'));
    });
-    $.get('https://swapi.co/api/films/?format=json', function (data) {
-	console.log(data)
+    $.get('http://0.0.0.0:5001/api/v1/status/', function (data) {
+	console.log("TESST")
     });
 
 });
