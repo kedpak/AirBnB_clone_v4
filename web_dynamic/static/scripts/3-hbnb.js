@@ -23,8 +23,6 @@ $(document).ready(function () {
     }
   });
 
-
-
   $.ajax({
     type: 'POST',
     url: 'http://0.0.0.0:5001/api/v1/places_search/',
@@ -33,7 +31,7 @@ $(document).ready(function () {
     headers: {'Content-Type': 'application/json'},
     success: function (data) {
       for (let i = 0; i < data.length; i++) {
-	 const htmlStruct = [
+        const htmlStruct = [
           '<article>',
           '<div class="title">',
           '<h2>' + data[i].name + '</h2>',
@@ -64,7 +62,5 @@ $(document).ready(function () {
         $(htmlStruct.join('')).appendTo('.places');
       }
     }
-});
-
-    
+  });
 });
