@@ -32,32 +32,36 @@ $(document).ready(function () {
     dataType: 'json',
     headers: {'Content-Type': 'application/json'},
     success: function (data) {
-      for (let i in data) {
-	  console.log(data[i].description)
-	  $('<article>').appendTo('.places')
-          $('<div class="title">').appendTo('.container .places article')
-          $('<h2>' + data[i].name + '</h2>').appendTo('.title')
-	  $('<div class="price_by_night">' + '$' + data[i].price_by_night + '</div>').appendTo('.title')
-          $('</div>').appendTo('.price_by_night')
-	  $('</div>').appendTo('.title')
-	  $('<div class="information">').appendTo('.container .places article')
-	  $('<div class="max_guest">').appendTo('.information')
-	  $('<i class="fa fa-users fa-3x" aria-hidden="true"></i>').appendTo('.max_guest')
-	  $('<div>' + data[i].max_guest + " Guests</div>").appendTo('.max_guest')
-	  $('</div>').appendTo('.max_guest')
-	  $('<div class="number_rooms">').appendTo('.information')
-	  $('<i class="fa fa-bed fa-3x" aria-hidden="true"></i>').appendTo('.number_rooms')
-	  $('<div>' + data[i].number_rooms + " Bedrooms </div>").appendTo('.number_rooms')
-	  $('</div>').appendTo('.number_rooms')
-	  $('<div class="number_bathrooms">').appendTo('.information')
-	  $('<i class="fa fa-bath fa-3x" aria-hidden="true"></i>').appendTo('.number_bathrooms')
-	  $('<div>' + data[i].number_bathrooms + " Bathroom</div>").appendTo('.number_bathrooms')
-	  $('</div>').appendTo('.number_bathrooms')
-	  $('</div>').appendTo('.container .places article')
-	  $('<div class="description">').appendTo('.container .places article ')
-	  $('<div>' + data[i].description +'</div>').appendTo('.description')
-          $('</div>').appendTo('.container .places article')
-	  $('</article>').appendTo('.places')
+      for (let i = 0; i < data.length; i++) {
+	 const htmlStruct = [
+          '<article>',
+          '<div class="title">',
+          '<h2>' + data[i].name + '</h2>',
+          '<div class="price_by_night">' + '$' + data[i].price_by_night + '</div>',
+          '</div>',
+          '<div class="information">',
+          '<div class="max_guest">',
+          '<i class="fa fa-users fa-3x" aria-hidden="true"></i>',
+          '<br />',
+          data[i].max_guest + ' Guests',
+          '</div>',
+          '<div class="number_rooms">',
+          '<i class="fa fa-bed fa-3x" aria-hidden="true"></i>',
+          '<br />',
+          data[i].number_rooms + ' Bedrooms',
+          '</div>',
+          '<div class="number_bathrooms">',
+          '<i class="fa fa-bath fa-3x" aria-hidden="true"></i>',
+          '<br />',
+          data[i].number_bathrooms + ' Bathroom',
+          '</div>',
+          '</div>',
+          '<div class="description">',
+          data[i].description,
+          '</div>',
+          '</article>'
+        ];
+        $(htmlStruct.join('')).appendTo('.places');
       }
     }
 });
