@@ -34,17 +34,17 @@ $(document).ready(function () {
     $.ajax({
       type: 'POST',
       url: 'http://0.0.0.0:5001/api/v1/places_search/',
-      data: '{}',
+      data: '{"amenities": amenList}',
       dataType: 'json',
       headers: {'Content-Type': 'application/json'},
       success: function (data) {
-        for (let j = 0; j < data.length; j++) {
-          for (let k = 0; k < nameList.length; k++) {
-            if (data[j].name === nameList[k]) {
-              delete data[j];
-            }
-          }
-        }
+       //#for (let j = 0; j < data.length; j++) {
+        //  for (let k = 0; k < nameList.length; k++) {
+         //   if (data[j].name === nameList[k]) {
+          //    delete data[j];
+           // }
+         // }
+       // }
         for (let i = 0; i < data.length; i++) {
           const htmlStruct = [
             '<article>',
