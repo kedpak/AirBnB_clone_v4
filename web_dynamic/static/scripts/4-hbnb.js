@@ -28,13 +28,13 @@ $(document).ready(function () {
 
     postAmen();
   });
-  postAmen();
 
   function postAmen () {
+    let query = {'amenities': amenList};
     $.ajax({
       type: 'POST',
       url: 'http://0.0.0.0:5001/api/v1/places_search/',
-      data: {"amenities": amenList},
+      data: JSON.stringify(query),
       dataType: 'json',
       headers: {'Content-Type': 'application/json'},
       success: function (data) {
