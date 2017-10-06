@@ -34,7 +34,7 @@ $(document).ready(function () {
     $.ajax({
       type: 'POST',
       url: 'http://0.0.0.0:5001/api/v1/places_search/',
-      data: '{"amenities": amenList}',
+      data: {"amenities": amenList},
       dataType: 'json',
       headers: {'Content-Type': 'application/json'},
       success: function (data) {
